@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My BootCDN</title>
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+    <script src="../bootstrap/js/jquery-3.1.0.js"></script>
+    <script src="../bootstrap/js/bootstrap.js"></script>
+
+    <style type="text/css">
+        body{
+            font-family: "Helvetica Neue","Helvetica","Lucida Grande","Arial","Hiragino Sans GB","Microsoft Yahei","WenQuanYi Micro Hei","sans-serif";
+        }
+        .site-notice{
+            text-align: center;
+            background-color: #208d4e;
+            color: #eee;
+            padding: 5px 0;
+        }
+        .site-notice a{
+            color: #eee;
+        }
+        .site-notice em{
+            font-style: normal;
+        }
+
+
+
+        .site-header{
+            position: relative;
+            text-align: center;
+            color:#f4f4f4;
+            background-color: #27AE60;
+            margin-bottom: 0px;
+        }
+
+        .site-header h1{
+            text-shadow: -5px 5px rgba(0,0,0,0.1);
+        }
+
+        .site-header .search{
+            border-radius: 0px 0px;
+            text-align: center;
+        }
+
+        .site-header .form-group{
+            margin-top: 40px;
+        }
+
+        .site-nav{
+            position: absolute;
+            right: 15px;
+            top: 15px;
+
+        }
+
+        .site-nav a{
+            color: #eee;
+        }
+
+        .site-nav span{
+            padding: 0px 6px;
+        }
+
+        .mostused-packages{
+            border-radius: 0;
+            border:none;
+        }
+
+        .protocal-notice{
+            margin-top: 30px;
+            font-size: 12px;
+        }
+
+        .protocal-help
+        {
+            margin-left: 2em;
+            margin-top: 8px;
+            margin-bottom: 9px;
+            display: inline-block;
+            color: #aaa;
+        }
+
+        .protocal-notice .btn-group .btn{
+            background-image: linear-gradient(#fcfcfc,#eee);
+        }
+
+        .main{
+            margin-top: 40px;
+        }
+
+        .footer{
+            margin-top: 80px;
+            padding-top: 40px;
+            background-color: #27AE60;
+            color: #fff;
+        }
+
+        .copy-right{
+            margin-top: 10px;
+            background-color: rgba(51,51,51,0.08);
+            text-align: center;
+            color: #fff;
+            line-height: 50px;
+        }
+        .footer a{
+            border-bottom: dotted 1px #a9dfbf;
+            color: #fff;
+        }
+
+        .copy-right>*+*{
+            margin-left: 14px;
+        }
+        .footer .container .row div[class*='col']{
+            padding-left: 25px;
+            padding-right: 25px;
+            margin-bottom: 15px;
+        }
+
+        .top-mark{
+            position: fixed;
+            bottom:10px;
+            right:10px;
+            text-align: center;
+            width: 40px;
+            line-height: 40px;
+
+            background-color: rgba(39,174,96,0.6);
+            border-radius: 2px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        $(function(){
+           $(window).scroll(function(){
+               if($(window).scrollTop() < 10)
+               {
+                   $(".top-mark").fadeOut("slow");
+               }
+               else
+               {
+                   $(".top-mark").fadeIn("slow");
+               }
+           });
+        });
+    </script>
+</head>
+<body>
+    <div id="top" class="site-notice">
+        <a href="#"><em>BootCDN 已经支持 HTTPS 协议啦！</em></a>
+    </div>
+    <div class="site-header jumbotron">
+        <div class="site-nav">
+            <a>博客</a><span>/</span><a>关于</a>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1>BootCDN</h1>
+                    <p>稳定、快速、免费的开源项目 CDN 服务
+                        <br/>
+                        <span>共收录了<strong>6666</strong>个开源项目</span>
+                    </p>
+                    <form>
+                        <div class="form-group has-success has-feedback">
+                            <input type="text" class="form-control input-lg search" id="inputSuccess2" placeholder="搜索开源库，比如jQuery" aria-describedby="inputSuccess2Status">
+                            <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+                            <span id="inputSuccess2Status" class="sr-only">(success)</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="well well-sm text-center mostused-packages hidden-xs hidden-sm">
+        <ul class="list-inline">
+            <li><a><image src="http://www.bootcdn.cn/assets/img/angular-icon.svg"></image></a></li>
+            <li><a><image src="http://www.bootcdn.cn/assets/img/backbone-icon.svg"></image></a></li>
+            <li><a><image src="http://www.bootcdn.cn/assets/img/bootstrap.svg"></image></a></li>
+            <li><a><image src="http://www.bootcdn.cn/assets/img/ember.svg"></image></a></li>
+            <li><a><image src="http://www.bootcdn.cn/assets/img/jquery.svg"></image></a></li>
+            <li><a><image src="http://www.bootcdn.cn/assets/img/lodash.svg"></image></a></li>
+            <li><a><image src="http://www.bootcdn.cn/assets/img/momentjs.svg"></image></a></li>
+            <li><a><image src="http://www.bootcdn.cn/assets/img/mootools.svg"></image></a></li>
+        </ul>
+    </div>
+    <div class="container protocal-notice">
+        <div class="row">
+            <div class="col-xs-12">
+                <form class="form-inline pull-right">
+                    <label>选择协议：</label>
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-default active">
+                            <input type="radio" name="options" id="option1" autocomplete="off" checked>自适应
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="radio" name="options" id="option2" autocomplete="off"> http
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="radio" name="options" id="option3" autocomplete="off"> https
+                        </label>
+                    </div>
+                    <span class="protocal-help">了解详情<span class="glyphicon glyphicon-exclamation-sign " aria-hidden="true"/></span>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="container">
+            <div class="list-group">
+                <a href="#" class="list-group-item">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h4>Bootstrap</h4>
+                        </div>
+                        <div class="col-md-9 hidden-xs">
+                            <p>The most popular front-end framework for developing responsive, mobile first projects on the web.</p>
+                        </div>
+                        <div class="col-md-9 col-md-offset-3 col-xs-12">
+                            <span><span class="glyphicon glyphicon-star"></span>999999</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="list-group-item">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h4>Bootstrap</h4>
+                        </div>
+                        <div class="col-md-9 hidden-xs">
+                            <p>The most popular front-end framework for developing responsive, mobile first projects on the web.</p>
+                        </div>
+                        <div class="col-md-9 col-md-offset-3 col-xs-12">
+                            <span><span class="glyphicon glyphicon-star"></span>999999</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="list-group-item">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h4>Bootstrap</h4>
+                        </div>
+                        <div class="col-md-9 hidden-xs">
+                            <p>The most popular front-end framework for developing responsive, mobile first projects on the web.</p>
+                        </div>
+                        <div class="col-md-9 col-md-offset-3 col-xs-12">
+                            <span><span class="glyphicon glyphicon-star"></span>999999</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="list-group-item">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h4>Bootstrap</h4>
+                        </div>
+                        <div class="col-md-9 hidden-xs">
+                            <p>The most popular front-end framework for developing responsive, mobile first projects on the web.</p>
+                        </div>
+                        <div class="col-md-9 col-md-offset-3 col-xs-12">
+                            <span><span class="glyphicon glyphicon-star"></span>999999</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="list-group-item">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h4>Bootstrap</h4>
+                        </div>
+                        <div class="col-md-9 hidden-xs">
+                            <p>The most popular front-end framework for developing responsive, mobile first projects on the web.</p>
+                        </div>
+                        <div class="col-md-9 col-md-offset-3 col-xs-12">
+                            <span><span class="glyphicon glyphicon-star"></span>999999</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="list-group-item">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h4>Bootstrap</h4>
+                        </div>
+                        <div class="col-md-9 hidden-xs">
+                            <p>The most popular front-end framework for developing responsive, mobile first projects on the web.</p>
+                        </div>
+                        <div class="col-md-9 col-md-offset-3 col-xs-12">
+                            <span><span class="glyphicon glyphicon-star"></span>999999</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="list-group-item">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h4>Bootstrap</h4>
+                        </div>
+                        <div class="col-md-9 hidden-xs">
+                            <p>The most popular front-end framework for developing responsive, mobile first projects on the web.</p>
+                        </div>
+                        <div class="col-md-9 col-md-offset-3 col-xs-12">
+                            <span><span class="glyphicon glyphicon-star"></span>999999</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="list-group-item">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h4>Bootstrap</h4>
+                        </div>
+                        <div class="col-md-9 hidden-xs">
+                            <p>The most popular front-end framework for developing responsive, mobile first projects on the web.</p>
+                        </div>
+                        <div class="col-md-9 col-md-offset-3 col-xs-12">
+                            <span><span class="glyphicon glyphicon-star"></span>999999</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <h4>关于 BootCDN</h4>
+                    <p>BootCDN 是 <a>Bootstrap中文网</a>支持并维护的开源项目免费 CDN 服务，致力于为 Bootstrap、jQuery、Angular 一样优秀的开源项目提供稳定、快速的免费 CDN 服务。BootCDN 所收录的开源项目主要同步于 <a>cdnjs</a> 仓库。</p>
+                    <p>自2013年10月31日上线以来已经为近万家网站提供了稳定、可靠的 CDN 服务。</p>
+                    <p>反馈或建议请发送邮件至：cdn@bootcss.com</p>
+                </div>
+                <div class="col-md-2">
+                    <h4>友情链接</h4>
+                    <ul class="list-unstyled">
+                        <li><a>Bootstrap 中文网</a></li>
+                        <li><a>Ghost 中国</a></li>
+                        <li><a>Laravel 中文网</a></li>
+                        <li><a>jQuery 中文 API</a></li>
+                        <li><a>Composer 中国镜像</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+
+                    <h4>我们用到的技术</h4>
+                    <ul class="list-inline">
+                        <li><a>Bootstrap 中文网</a></li>
+                        <li><a>Ghost 中国</a></li>
+                        <li><a>Laravel 中文网</a></li>
+                        <li><a>jQuery 中文 API</a></li>
+                        <li><a>Composer 中国镜像</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h4>赞助商</h4>
+                    <a><img src="http://www.bootcdn.cn/assets/img/Upyun_LOGO_300.png" style="width: 120px"/></a>
+                </div>
+            </div>
+        </div>
+        <div class="copy-right">
+            <span>© 2013-2016</span>
+            <a>京ICP备11008151号</a>
+            <span>京公网安备11010802014853</span>
+        </div>
+    </div>
+
+    <a class="top-mark" href="#top">
+        <span class="glyphicon glyphicon-menu-up"></span>
+    </a>
+</body>
+</html>

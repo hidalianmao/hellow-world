@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+
+		<!-- 新 Bootstrap 核心 CSS 文件 -->
+		<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+
+		<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+		<link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.css">
+
+		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+		<script src="../bootstrap/js/jquery-3.1.0.js"></script>
+
+		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+		<script src="../bootstrap/js/bootstrap.js"></script>
+		<style type="text/css">
+            body {
+                font-size: 12px;
+            }
+
+            a {
+                cursor: pointer !important;
+                text-decoration: none !important;
+                cursor: pointer !important;
+            }
+
+            .header-login a:hover, .header-login a:focus {
+                color: red !important;
+            }
+
+            .nav-tabs > li > a, .nav-tabs > li > a:focus, .nav-tabs > li > a:hover {
+                color: #fffef3;
+                font-weight: bold;
+                width: 90px;
+                border: 1px solid transparent;
+                border-top: 6px solid transparent;
+                margin-right: 0px;
+                border-radius: 0px;
+            }
+
+            .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+                color: #fffef3;
+                background-color: #3c3c3c;
+                border-top: 6px solid #f08707;
+            }
+            .nav-tabs > li:first-child.active > a, .nav-tabs > li:first-child.active > a:hover, .nav-tabs > li:first-child.active > a:focus {
+                border-left: 1px solid transparent;
+            }
+            .menu-row-col a, .menu-row-col a:focus, .menu-row-col a:visited, .menu-row-col a:active {
+                color: #acacac;
+            }
+            .menu-row-col a:hover {
+                color: #f08707;
+                text-decoration: none;
+            }
+
+            .header {
+                background-image: url('images/index-header-bg.png');
+                background-repeat: repeat-x;
+                height: 44px;
+            }
+            .i-1080p {
+                width: 1080px;
+                margin: 0px auto;
+            }
+            .i-logo {
+                width: 128px;
+                height: 44px;
+                background: url(images/index-logo-Beta.png) no-repeat 0px 7px;
+                float: left;
+            }
+            .i-title {
+                width: 270px;
+                height: 44px;
+                background: url(images/index-title.png) no-repeat 0px 12px;
+                float: left;
+                margin-left: 10px;
+            }
+
+            .header-login {
+                float: right;
+                padding: 5px 0px;
+            }
+
+            .header-login .form-control {
+                padding-top: 4px;
+                padding-bottom: 4px;
+                height: auto;
+            }
+
+            .header-login label, .header-login a {
+                color: #fff;
+                line-height: 34px;
+            }
+
+            .i-search a {
+                color: #fff;
+            }
+
+            .header-login .form-inline > *+ * {
+                margin-left: 5px;
+            }
+
+            .header-login .btn-login {
+                height: 30px;
+                width: 57px;
+                background: url(images/index-login-btn.png) no-repeat 0px 0px;
+                border: none;
+            }
+            .header-login .btn-login:hover, .header-login .btn-login:focus {
+                height: 30px;
+                width: 57px;
+                background: url(images/index-login-btn.png) no-repeat -57px 0px;
+            }
+            
+            .content{
+            	height:680px;
+                background:url(images/index-main-bg.jpg) no-repeat top center;
+            }
+
+            .main-content {
+                margin: 23px auto 0px auto;
+                width: 1080px;
+                height: 608px;
+                background-color:#fff;
+            }
+
+            .content-left {
+                font-size: 12px;
+                color: #fff;
+                width: 270px;
+                height: 100%;
+                float: left;
+                background-color: #3c3c3c;
+            }
+
+            .content-left .nav {
+                background-color: #a3a3a3;
+            }
+
+            .content-left .tab-content {
+                padding: 15px 15px;
+                color: #fff;
+            }
+
+            .content-left .tab-pane {
+                position: relative;
+                height: 531px;
+            }
+
+            .content-left  .btn {
+                height: 40px;
+                width: 238px;
+                background: url(images/i-search-btn.png) no-repeat 0px -41px;
+            }
+            .content-left  .btn:active {
+                background: url(images/i-search-btn.png) no-repeat 0px 0px;
+            }
+            .content-left .i-search {
+                line-height: 22px;
+                padding: 8px 0px;
+                text-align: right;
+            }
+
+            .content-left .find-logo {
+                position: absolute;
+                bottom: 0px;
+                padding: 0px 2px;
+            }
+            .content-left label {
+                margin-bottom: 8px;
+            }
+            .content-left input[type='checkbox'] {
+                margin-top: 2px;
+            }
+
+            .content-right-top {
+                font-size: 14px;
+                float: left;
+                width: 810px;
+                height: 400px;
+            }
+
+            .menu {
+                float: left;
+                width: 405px;
+                height: 100%;
+            }
+
+            .menu-row {
+                height: 100px;
+                width: 405px;
+            }
+
+            .menu .menu-row:nth-child(even) {
+                background-color: #f4f4f4;
+            }
+
+            .menu-row .menu-row-col:first-child {
+                font-weight: bold;
+            }
+
+            .menu-row-col {
+                float: left;
+                width: 135px;
+                height: 100px;
+                text-align: center;
+            }
+            .menu-row > .menu-row-col:first-child .menu-row-col-cap {
+                display: inline-block;
+                height: 70px;
+                width: 134px;
+                border-right: 1px solid #d1d1d1;
+                margin: 15px 0px;
+            }
+            .menu-row-col-cap {
+                line-height: 70px;
+            }
+
+            a .menu-row-col-icon, a:focus .menu-row-col-icon, a:active .menu-row-col-icon, a:visited .menu-row-col-icon {
+                display: block;
+                margin: 0px auto;
+                width: 60px;
+                height: 60px;
+                background-image: url(images/i-icon.png);
+                background-repeat: no-repeat;
+            }
+
+            .top-left {
+                float: left;
+                height: 100%;
+            }
+            .jingying {
+                float: left;
+                width: 135px;
+                height: 100%;
+                background: url(images/key.png) no-repeat;
+            }
+            .menu-active .jingying{
+                background: url(images/key.png) no-repeat -135px 0px;
+            }
+
+            .top-middle {
+                float: left;
+                height: 100%;
+            }
+            .lietou {
+                float: left;
+                width: 135px;
+                height: 100%;
+                background: url(images/key.png) no-repeat -270px 0px;
+            }
+            .menu-active .lietou{
+                background: url(images/key.png) no-repeat -405px 0px;
+            }
+
+            .top-right {
+                float: left;
+                height: 100%;
+            }
+
+            .hr {
+                float: left;
+                width: 135px;
+                height: 100%;
+                background: url(images/key.png) no-repeat -540px 0px;
+            }
+            .menu-active .hr{
+                background: url(images/key.png) no-repeat -675px 0px;
+            }
+
+            .content-right-bottom {
+                float: left;
+                width: 810px;
+                height: 208px;
+            }
+            .content-right-bottom .dynamic:first-child {
+                float: left;
+                width: 540px;
+                height: 100%;
+            }
+
+            .dynamic .dync-desc {
+                font-size: 14px;
+                line-height: 47px;
+                height: 47px;
+                border-bottom: 1px solid #f4f4f4;
+                margin-bottom: 15px;
+            }
+
+            .dynamic .dync-desc span:first-child {
+                float: left;
+                display: block;
+            }
+            .dynamic .dync-desc span:last-child {
+                float: right;
+                display: block;
+            }
+            .dynamic .dync-content {
+                height: 146px;
+                padding: 0px 15px;
+                overflow: hidden;
+            }
+
+            .dync-content li > div:first-child {
+                float: left;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .dync-content li > div:last-child {
+                float: right;
+                min-width: inherit;
+                text-align: right;
+            }
+
+            .content-right-bottom .dynamic:first-child li > div:first-child {
+                width: 400px;
+            }
+            .content-right-bottom .dynamic:first-child li > div:last-child {
+                width: 100px;
+            }
+            .content-right-bottom .dynamic:last-child li > div:first-child {
+                width: 200px;
+            }
+            .content-right-bottom .dynamic:last-child li > div:last-child {
+                width: 45px;
+            }
+            .dynamic ul {
+                margin-bottom: 0px;
+            }
+            .dynamic ul li {
+                width: 100%;
+                padding: 0px 0px;
+            }
+
+            .content-right-bottom .dynamic:last-child {
+                float: left;
+                width: 270px;
+                height: 100%;
+            }
+            .dynamic-main-img {
+                float: left;
+            }
+            .dynamic-main-con {
+                float: left;
+                margin-left: 10px;
+            }
+            .icon-lt {
+                display: inline-block;
+                width: 50px;
+                height: 21px;
+                margin-top: 0px;
+                background: url(images/icon_lt.png) no-repeat 0px 0px;
+                vertical-align: bottom;
+            }
+
+            .menu-ani {
+                overflow: hidden;
+                -webkit-transition-timing-function: ease;
+                -o-transition-timing-function: ease;
+                transition-timing-function: ease;
+                -webkit-transition-duration: .35s;
+                -o-transition-duration: .35s;
+                transition-duration: .35s;
+                -webkit-transition-property: width, display;
+                -o-transition-property: width, display;
+                transition-property: width, display;
+            }
+
+            .menu-active>.menu {
+                width: 405px;
+            }
+            .menu {
+                width: 0px;
+                overflow: hidden;
+            }
+            .footer{
+            	color:#999;
+            }
+            .footer .line{
+				border-bottom:#e4e4e4 1px solid;
+            }
+			.footer_top{
+				width:600px;
+				margin:0px auto;
+				padding:20px 0px;
+			}
+			.footer_top>ul{
+				width:150px;
+				height:105px;
+				padding-left: 30px;
+				float:left;
+			}
+			.footer_top>ul+ul{
+				background:url(images/footer_li_line.png) no-repeat left 20px;
+			}
+			
+			.copyright{
+				width: 960px;
+				margin:0px auto;
+				padding:10px 0px;
+				text-align:center;
+			}
+
+            #register_dlg .modal-header{
+                border-bottom: none;
+            }
+            #register_dlg .modal-footer{
+                border-top: none;
+            }
+
+            #register_dlg .register-panel{
+                float:left;
+                width: 50%;
+            }
+            .register-panel>div{
+                position: relative;
+                margin: 10px auto;
+                width: 114px;
+                text-align: center;
+            }
+
+            .register-panel>div>span{
+                display:block;
+                background: url(images/icon64-choise.png) no-repeat 0px 0px;
+                width: 45px;
+                height: 46px;
+                position: absolute;
+                top: -10px;
+                right: -10px;
+            }
+            .register-panel ul{
+                list-style: none;
+            }
+            .register-panel ul li{
+                padding-left: 31px;
+                background: url(images/icon-gou1.png) no-repeat 5px 5px;
+                line-height: 27px;
+            }
+            .register-panel .btn,
+            .register-panel .btn:active,
+            .register-panel .btn:focus
+            {
+                background-color: #faa732;
+                background-image: linear-gradient(to bottom, #fbb450, #f89406);
+                border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+                background-position :0px 0px;
+            }
+
+            .register-panel div:last-child{
+                margin-top: 50px;
+            }
+            .register-panel:hover{
+                background-color: #efefef;
+                cursor: pointer;
+                background-color: #f5f5f5;
+                border: 1px solid #e3e3e3;
+                border-radius: 4px;
+                -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);;
+            }
+            .register-panel:hover>div>span{
+                background: url(images/icon64-choise.png) no-repeat 0px -46px;
+            }
+
+            #register_info_dlg .nav, #register_info_dlg .tab-content{
+                background-color: #333;
+            }
+            #register_info_dlg .tab-content {
+                padding: 5px 10px;
+                color: #fff;
+            }
+
+            #register_info_dlg input[type='text']{
+                height: 42px;
+                padding: 10px;
+                border: 1px solid #cccccc;
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+                transition:border linear 0.2s, box-shadow linear 0.2s;
+                border-radius:2px;
+
+            }
+            #register_info_dlg .title{
+                padding: 10px 0px 5px 0px;
+                text-align: right;
+            }
+            #register_info_dlg .max-input{
+                width: 100%;
+            }
+
+            .hide{
+                display: none;
+            }
+
+            .btn-del{
+                padding: 2px 12px;
+                font-size: 12px;
+            }
+            #area_dlg .modal-footer{
+                background-color: #f5f5f5;
+            }
+        </style>
+		<script type="text/javascript">
+			function get_html(type) {
+				var jingying = [{
+					title : "把握高新职位",
+					cells : [{
+						title : "搜索猎头CASE",
+						icon : 0
+					}, {
+						title : "应聘记录",
+						icon : 1
+					}]
+				}, {
+					title : "线上实时沟通",
+					cells : [{
+						title : "递名片",
+						icon : 2
+					}, {
+						title : "私信",
+						icon : 3
+					}]
+				}, {
+					title : "查看猎头资源",
+					cells : [{
+						title : "人脉管理",
+						icon : 4
+					}, {
+						title : "查看猎头档案",
+						icon : 5
+					}]
+				}, {
+					title : "设置精英名片",
+					cells : [{
+						title : "我的档案",
+						icon : 6
+					}, {
+						title : "隐私设置",
+						icon : 7
+					}]
+				}];
+
+				var lietou = [{
+					title : "挖掘精英资源",
+					cells : [{
+						title : "搜索精英",
+						icon : 8
+					}, {
+						title : "人脉管理",
+						icon : 9
+					}]
+				}, {
+					title : "线上实时沟通",
+					cells : [{
+						title : "递名片",
+						icon : 2
+					}, {
+						title : "私信",
+						icon : 3
+					}]
+				}, {
+					title : "拓展猎头业务",
+					cells : [{
+						title : "搜索企业CASE",
+						icon : 10
+					}, {
+						title : "CASE管理",
+						icon : 11
+					}]
+				}, {
+					title : "建立猎头品牌",
+					cells : [{
+						title : "猎头档案",
+						icon : 12
+					}, {
+						title : "猎头认证",
+						icon : 13
+					}]
+				}];
+
+				var hr = [{
+					title : "企业招聘委托",
+					cells : [{
+						title : "发布企业CASE",
+						icon : 14
+					}]
+				}, {
+					title : "寻找猎头资源",
+					cells : [{
+						title : "查看猎头档案",
+						icon : 4
+					}]
+				}, {
+					title : "线上实时沟通",
+					cells : [{
+						title : "私信",
+						icon : 3
+					}]
+				}, {
+					title : "猎头推荐人才",
+					cells : [{
+						title : "候选精英",
+						icon : 15
+					}]
+				}];
+
+				if (type == 0) {
+					data = jingying;
+				} else if (type == 1) {
+					data = lietou;
+				} else {
+					data = hr;
+				}
+				//渲染panel
+				var html = "<div class='menu menu-ani'>";
+
+				data.forEach(function(row) {
+					html += "<div class='menu-row'>";
+
+					html += "<div class = 'menu-row-col'><span class='menu-row-col-cap'>" + row.title + "</span></div>";
+					for (var col = 0; col < row.cells.length; col++) {
+						var cell = row.cells[col];
+						var icon_top = "-" + cell.icon * 60 + "px";
+						html += "<div class='menu-row-col' style='width:"+ (270/row.cells.length) + "px'><a> <i class='menu-row-col-icon' style='background-position: 0px " + icon_top + "'></i> <span>" + cell.title + "</span> </a></div>";
+					}
+
+					html += "</div>";
+				});
+
+				html += "</div>";
+
+				return html;
+			}
+
+			$(function() {
+
+                //显示地区对话框
+                $(".region").click(function(){
+                    $("#area_dlg").modal();
+                });
+				
+				//banner消失动画
+				setTimeout(function(){
+					$("#banner").slideUp('slow');
+				},2000);
+
+				//右下方信息滚动
+				$(".dync-content ul:first-child").each(function() {
+					var $ul = $(this);
+					var $ul_copy = $ul.clone(true, true);
+					var height = $ul.outerHeight();
+					$ul.after($ul_copy);
+					var margin_top = 0;
+					setInterval(function() {
+						margin_top -= 1;
+						if (margin_top < -height) {
+							margin_top = 0;
+						}
+						$ul.css("margin-top", margin_top + "px");
+					}, 100);
+
+				});
+
+				//渲染滑动面板
+				$(".jingying").after(get_html(0));
+				$(".lietou").after(get_html(1));
+				$(".hr").after(get_html(2));
+				
+				$(".hr").parent().addClass("menu-active");
+				var f = function(){
+					var pre = $(".menu-active").prev();
+					if(pre.length != 0)
+					{
+						$(".menu-active").removeClass("menu-active");
+						pre.addClass("menu-active");
+						pre.one("bsTransitionEnd",f).emulateTransitionEnd(350);
+					}
+				};
+				$(".menu-active .menu").one('bsTransitionEnd',f).emulateTransitionEnd(350);
+				
+				//各面板有鼠标进入时显示彩色图标否则显示灰色图标
+				$(".menu-row-col a").on("mouseenter mouseleave",function(e){
+					var pos = $("i", e.currentTarget).css("background-position");
+					var left_top = pos.split(/\s+/,2);
+					if(e.type == "mouseenter")
+						pos = "-60px " + left_top[1];
+					else
+						pos = "0px " + left_top[1];
+					$("i", e.currentTarget).css("background-position",pos);
+				});
+
+				//点击精英、猎头或HR展开相应面板
+				$(document).on("click", ".jingying,.lietou,.hr", function(e) {
+					$(".menu-active").removeClass("menu-active");
+					$(e.currentTarget).parent().addClass("menu-active");
+
+				});
+				
+				//登录
+				$("#register_dlg .register-panel").click(function(){
+					$("#register_dlg").modal('hide');
+                    $("#register_info_dlg").modal({btn:this});
+				});
+
+                $("#login_dlg input").tooltip({trigger:"manual"}).tooltip('hide');
+                $("#login_dlg input").blur(function(){
+                    $(this).tooltip($(this).val().trim() =="" ? 'show' : 'hide');
+                })
+
+                //验证码
+                $("#reload").click(function(e){
+                   $("#code_img").attr("src","http://www.51jingying.com/common/verifycode.php?type=2&a="+new Date().getTime().toString());
+                });
+
+                //手机/邮箱注册切换
+                $(".email-phone-switch>.title>a").click(function(e){
+                    $(".email-phone-switch").toggleClass("hide");
+                });
+			});
+		</script>
+	</head>
+	<body>
+		<div id="banner" style="background:url(images/UnBanner.jpg);width:1920px;height:80px;">
+		</div>
+		<div class="header">
+			<div class="i-1080p">
+				<a><div class="i-logo"></div></a>
+				<div class="i-title"></div>
+				<div class="header-login">
+
+					<form class="form-inline">
+						<div class="form-group">
+							<input type="text" class="form-control" id="exampleInputName2" placeholder="邮箱/手机/用户名/51job账号">
+						</div>
+						<div class="form-group">
+							<input type="email" class="form-control" id="exampleInputEmail2" placeholder="密码">
+						</div>
+						<button type="button" class="btn btn-login"  data-toggle="modal" data-target="#login_dlg"></button>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" style="margin-top: 0px;vertical-align: middle">
+								自动登录 </label>
+						</div>
+						<div class="form-group">
+							<a>忘记密码？</a>
+						</div>
+						<div class="form-group">
+							<a  data-toggle="modal" data-target="#register_dlg">注册</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="content">
+			<div class="main-content">
+				<div class="content-left">
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active">
+							<a href="#home" aria-controls="home" role="tab" data-toggle="tab">找精英</a>
+						</li>
+						<li role="presentation">
+							<a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">找Case</a>
+						</li>
+						<li role="presentation">
+							<a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">找猎头</a>
+						</li>
+					</ul>
+	
+					<!-- Tab panes -->
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane active" id="home">
+	
+							<form>
+								<div class="form-group">
+									<label for="keyword">关键字</label>
+									<input type="email" class="form-control" id="keyword" placeholder="请输入关键字">
+								</div>
+								<div class="form-group has-success has-feedback">
+									<label for="_region">居住地</label>
+									<input type="password" class="form-control region" id="_region" placeholder="居住地">
+									<span class="glyphicon glyphicon-th form-control-feedback" aria-hidden="true"></span>
+								</div>
+								<div class="form-group">
+									<label for="depart">职位/部门</label>
+									<input type="email" class="form-control" id="depart" placeholder="职位/部门">
+								</div>
+								<div class="form-group">
+									<label for="hangye">公司</label>
+									<input type="email" class="form-control" id="company" placeholder="公司">
+								</div>
+	
+								<a class="btn form-control"></a>
+								<div class="i-search">
+									<a>试一试公司架构搜索？</a>
+								</div>
+							</form>
+	
+							<!--logo-->
+							<div class="find-logo">
+								<a><img src="images/236-159.gif"></a>
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="profile">
+	
+							<form>
+								<div class="form-group">
+									<label for="caseID">Case名称/ID</label>
+									<input type="email" class="form-control" id="caseID" placeholder="输入内容">
+								</div>
+	
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" id="full-search" value="option1">
+										含全文搜索 </label>
+								</div>
+								<div class="form-group has-success has-feedback">
+									<input type="password" class="form-control region" id="region" placeholder="选择地区">
+									<span class="glyphicon glyphicon-th form-control-feedback" aria-hidden="true"></span>
+								</div>
+								<div class="form-group">
+									<label for="salary">Case年薪</label>
+									<input type="email" class="form-control" id="salary" placeholder="选择年薪">
+								</div>
+								<div class="form-group">
+									<label for="hangye">行业</label>
+									<input type="email" class="form-control" id="hangye" placeholder="选择行业">
+								</div>
+								<div class="form-group">
+									<label for="hangye">猎头顾问/猎头公司/顾问介绍</label>
+									<input type="email" class="form-control" id="guwen" placeholder="输入内容">
+								</div>
+	
+								<a class="btn form-control"></a>
+								<div class="i-search">
+									<a>试一试公司架构搜索？</a>
+								</div>
+							</form>
+	
+							<!--logo-->
+							<div class="find-logo">
+								<a><img src="images/case.jpg"></a>
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="messages">
+							<form>
+								<div class="form-group">
+									<label for="exampleInputEmail1">猎头顾问/猎头公司</label>
+									<input type="email" class="form-control" id="exampleInputEmail1" placeholder="输入内容">
+								</div>
+								<div class="form-group has-success has-feedback">
+									<label for="exampleInputPassword1">选择地区</label>
+									<input type="password" class="form-control" id="exampleInputPassword1" placeholder="选择地区">
+									<span class="glyphicon glyphicon-th form-control-feedback" aria-hidden="true"></span>
+								</div>
+	
+								<a class="btn form-control"></a>
+								<div class="i-search">
+									<a>试一试公司架构搜索？</a>
+								</div>
+							</form>
+	
+							<!--logo-->
+							<div class="find-logo">
+								<a><img src="images/236-159.gif"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="content-right-top clearfix">
+					<div class="top-left clearfix">
+						<div class="jingying menu-active"></div>
+					</div>
+					<div class="top-middle clearfix">
+						<div class="lietou"></div>
+					</div>
+					<div class="top-right clearfix">
+						<div class="hr"></div>
+					</div>
+				</div>
+				<div class="content-right-bottom">
+					<div class="dynamic">
+						<dl>
+							<dt class="dync-desc">
+								<span>Case动态</span>
+								<span><a>更多</a></span>
+							</dt>
+							<dd class="dync-content">
+								<ul class="list-inline">
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=37806">王芬</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80368&amp;passkey=5e12216965cdad1cef5d22c87ecb1d8c">店铺经理</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">10万-20万</span> | 佛山</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=13661">陈媛</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80367&amp;passkey=f1dc13095254a0e53bd7ab523b7dedfd">学术专员</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">10万以下</span> | 北京</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=31030">甘英</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80353&amp;passkey=1ca6f64a2a72e4d7a2c79cb6a32851fe">软件架构师</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">20万-40万</span> | 广州</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=31090">李瑾</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80363&amp;passkey=934c21a498c80f16a76afb8919c0f68b">产品经理</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">10万-20万</span> | 武汉</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=22012">郭宏</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80359&amp;passkey=3b6919bbcb1a0967f5ac3c771deca854">运营经理</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">10万-20万</span> | 西安</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=21399">杨娜</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80358&amp;passkey=734641bda49bb34505d8f153071682c8">成本副经理</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">20万-40万</span> | 浙江省</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=38873">欧金娥</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80356&amp;passkey=d478bc6fd2e43909ed474a9dc2e463c4">PHP开发工程师</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">20万-40万</span> | 北京</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=31032">侯玙茜</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80352&amp;passkey=803ba8f1da754f5be08fd45faef1ca10">Senior Software ...</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">10万-20万</span> | 广州/西安</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=37975">王露雪</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80344&amp;passkey=1895aa784e4c495c7b9a2473c5feafdd">总裁</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">60万-100万</span> | 上海</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=25883">江伟</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80340&amp;passkey=bbd5e04a281cdfa73c03737e1407232b">全国知名的外卖O2...</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">60万-90万</span> | 上海</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=19632">甘红</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80239&amp;passkey=ebf5edc9f7ace7913988c7adc11f85c1">医学总监</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">40万-60万</span> | 上海</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=16735">贺亮亮</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80337&amp;passkey=bfd181dcede31da845860a94840928e8">区域经理</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">10万-20万</span> | 湖北省/湖南省/四川省/重庆</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=38902">李映妮</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80336&amp;passkey=3237b580f80bb1780a4a87d6df4cc9fe">java高级开发工程...</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">20万-40万</span> | 北京</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=1608">郑思妍</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80335&amp;passkey=309b77f1e49ab407aa0db89071c53ddf">移动前端开发工程...</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">10万-20万</span> | 佛山</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=24259">高立冬</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80328&amp;passkey=5719a8b3a30791de8979ea79d371b5e5">高级Java开发工程...</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">40万-60万</span> | 北京</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=23356">胡亚东</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80327&amp;passkey=fce0e98faa50b4eb6def5fb8060576c3">Java 工程师</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">10万-20万</span> | 上海</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=19848">赵丽娟</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80325&amp;passkey=dc7be5ec05fe4832c146cf25c1a74766">精益生产经理/Lea...</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">10万-20万</span> | 宁波</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=37427">顾燕红</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80324&amp;passkey=1fde75464fe6ccb05e4221ffcad33e5d">系统工程师</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">15万-25万</span> | 上海</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=27057">蒋玉红</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80321&amp;passkey=ba24dfb4179b381396a812d3ed9ab126">区域销售经理</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">20万-40万</span> | 成都/重庆/昆明/西安/济南</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=37164">郑饶诚</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80319&amp;passkey=d22ad703a12750f5bb11a4805c238fa5">房地产城市公司总...</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">90万-150万</span> | 南宁</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=35861">吴晓霞</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80318&amp;passkey=8c2c293161fd08f1020bff6d9334ad44">风电/电力/新能源...</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">40万-60万</span> | 广东省</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=13291">董志领</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80317&amp;passkey=cacce12ad00e63b858e4284718d1ecea">销售经理</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">10万-20万</span> | 北京/上海/广州</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=21711">张有龙</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80316&amp;passkey=f653c6ab544332094b58e27fbe034633">3C涂料技术经理</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">20万-40万</span> | 广东省</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=32344">黄丽</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80315&amp;passkey=b3f60cd8d4e17d441158c5948e7faf47">投资总监／分公司...</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">40万-60万</span> | 济南</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=27463">潘华仙</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80314&amp;passkey=1656835a54a598b59f689c5732d06f6b">渠道经理</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">20万-40万</span> | 上海</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=36061">罗婷</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80312&amp;passkey=5e6b840f85a9c3f6434e8ad73562fb8a">游戏高级系统策划</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">18万-30万</span> | 广州</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=15362">陈泽美</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80311&amp;passkey=831171bf11d8e002fc3ed2679c204fb2">平面设计主管/经理</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">10万-20万</span> | 杭州</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=37507">蒋莉洁</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80310&amp;passkey=1717bcd11474c710a7c671e735f0f5bd">高级客户端开发工...</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">10万-40万</span> | 广东省/福建省/江苏省</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=24744">江小宝</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80309&amp;passkey=4e8c315a8942beefbf2fc5bc65646cdd">3D场景设计师</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">15万-30万</span> | 北京</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											猎头顾问<a nocheck="" href="/spy/spyinfo.php?spyId=37797">魏良艳</a>
+											，发布了新Case<a nocheck="" href="/common/casedetail.php?casetype=spyinfo&amp;caseid=80308&amp;passkey=ebab8563f57728ee21d101f41fa95de9">副总经理/生产总监</a>
+											<span class="case-span"> 年薪 <span class="c_fe7e01">60万-70万</span> | 萍乡</span>
+										</div>
+										<div style="min-width:50px;margin-right:10px;float:right;" class="dynamic-time">
+											1天前
+										</div>
+									</li>
+								</ul>
+							</dd>
+						</dl>
+					</div>
+					<div class="dynamic">
+						<dl>
+							<dt class="dync-desc">
+								<span>最新人脉</span>
+								<span><a>更多</a></span>
+							</dt>
+							<dd class="dync-content">
+								<ul class="list-inline">
+									<li>
+										<div class="dynamic-main">
+											<div class="dynamic-main-img"><img src="http://www.51jingying.com/picture/Spy/1/39/38916/big_38916-spy-140x140-{EBC1D8E8}{2D92}{F6E5}{D58F}{5BB88AA8E9C9}.jpg" width="40" height="40">
+											</div>
+											<div class="dynamic-main-con">
+												<div>
+													<a nocheck="" href="/spy/spyinfo.php?spyId=38916" title="程飞">程飞</a><i class="icon-lt"></i>
+												</div>
+												<div class="dynamic-zs">
+													大客户销售 | 合肥
+												</div>
+											</div>
+										</div>
+										<div class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main">
+											<div class="dynamic-main-img"><img src="http://www.51jingying.com/picture/Spy/1/39/38928/big_38928-spy-600x600-{51314766}{1F31}{ABC5}{BF18}{AFB17610C634}.jpg" width="40" height="40">
+											</div>
+											<div class="dynamic-main-con">
+												<div>
+													<a nocheck="" href="/spy/spyinfo.php?spyId=38928" title="黄以镜">黄以镜</a><i class="icon-lt"></i>
+												</div>
+												<div class="dynamic-zs">
+													猎头顾问 | 合肥
+												</div>
+											</div>
+										</div>
+										<div class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main" >
+											<div class="dynamic-main-img"><img src="http://www.51jingying.com/picture/Spy/1/39/38923/big_38923-spy-300x453-{E95CA491}{3924}{0338}{1716}{944FBB65A16C}.jpg" width="40" height="40">
+											</div>
+											<div class="dynamic-main-con">
+												<div>
+													<a nocheck="" href="/spy/spyinfo.php?spyId=38923" title="汪永璐">汪永璐</a><i class="icon-lt"></i>
+												</div>
+												<div class="dynamic-zs">
+													猎头顾问 | 合肥
+												</div>
+											</div>
+										</div>
+										<div class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main" >
+											<div class="dynamic-main-img"><img src="http://www.51jingying.com/picture/Spy/1/39/38922/big_38922-spy-961x1280-{7C934B9F}{9254}{51BB}{19C2}{25AC36563E90}.jpg" width="40" height="40">
+											</div>
+											<div class="dynamic-main-con">
+												<div>
+													<a nocheck="" href="/spy/spyinfo.php?spyId=38922" title="刘明明">刘明明</a><i class="icon-lt"></i>
+												</div>
+												<div class="dynamic-zs">
+													猎头顾问 | 合肥
+												</div>
+											</div>
+										</div>
+										<div class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main" >
+											<div class="dynamic-main-img"><img src="http://www.51jingying.com/picture/Spy/1/39/38920/big_38920-spy-960x1280-{26158C3C}{A910}{972E}{F21F}{711928299F83}.jpg" width="40" height="40">
+											</div>
+											<div class="dynamic-main-con">
+												<div>
+													<a nocheck="" href="/spy/spyinfo.php?spyId=38920" title="王野">王野</a><i class="icon-lt"></i>
+												</div>
+												<div class="dynamic-zs">
+													合伙人 | 北京
+												</div>
+											</div>
+										</div>
+										<div class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main" >
+											<div class="dynamic-main-img"><img src="http://www.51jingying.com/picture/Spy/1/39/38918/big_38918-spy-150x148-{EA79DEA4}{978B}{8BB5}{CED8}{C415D574019C}.jpg" width="40" height="40">
+											</div>
+											<div class="dynamic-main-con">
+												<div>
+													<a nocheck="" href="/spy/spyinfo.php?spyId=38918" title="彭婷婷">彭婷婷</a><i class="icon-lt"></i>
+												</div>
+												<div class="dynamic-zs">
+													猎头助理 | 北京
+												</div>
+											</div>
+										</div>
+										<div class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main" >
+											<div class="dynamic-main-img"><img src="http://www.51jingying.com/picture/Spy/1/39/38917/big_38917-spy-180x180-{A2F976C0}{0698}{ABBF}{9DDD}{FDF00DA3498B}.jpg" width="40" height="40">
+											</div>
+											<div class="dynamic-main-con">
+												<div>
+													<a nocheck="" href="/spy/spyinfo.php?spyId=38917" title="杜雷">杜雷</a><i class="icon-lt"></i>
+												</div>
+												<div class="dynamic-zs">
+													猎头顾问 | 上海
+												</div>
+											</div>
+										</div>
+										<div class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main" >
+											<div class="dynamic-main-img"><img src="http://www.51jingying.com/picture/Spy/1/39/38915/big_38915-spy-352x220-{0A8A84FE}{7933}{6D12}{1E2C}{E3E1602801E8}.jpg" width="40" height="40">
+											</div>
+											<div class="dynamic-main-con">
+												<div>
+													<a nocheck="" href="/spy/spyinfo.php?spyId=38915" title="郭丽双">郭丽双</a><i class="icon-lt"></i>
+												</div>
+												<div class="dynamic-zs">
+													猎头顾问 | 上海
+												</div>
+											</div>
+										</div>
+										<div class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main" >
+											<div class="dynamic-main-img"><img src="http://www.51jingying.com/picture/Spy/1/39/38914/big_38914-spy-960x1280-{50A3304B}{0463}{E78A}{EF40}{F266E825310D}.jpg" width="40" height="40">
+											</div>
+											<div class="dynamic-main-con">
+												<div>
+													<a nocheck="" href="/spy/spyinfo.php?spyId=38914" title="梁敏">梁敏</a><i class="icon-lt"></i>
+												</div>
+												<div class="dynamic-zs">
+													猎头顾问 | 北京
+												</div>
+											</div>
+										</div>
+										<div class="dynamic-time">
+											1天前
+										</div>
+									</li>
+									<li>
+										<div class="dynamic-main" style="width:130px;">
+											<div class="dynamic-main-img"><img src="http://www.51jingying.com/picture/Spy/1/39/38912/big_38912-spy-720x960-{626F89FE}{7F5C}{C3AC}{196D}{EF4749999CF9}.jpg" width="40" height="40">
+											</div>
+											<div class="dynamic-main-con">
+												<div>
+													<a nocheck="" href="/spy/spyinfo.php?spyId=38912" title="陈哲">陈哲</a><i class="icon-lt"></i>
+												</div>
+												<div class="dynamic-zs">
+													猎头顾问 | 合肥
+												</div>
+											</div>
+										</div>
+										<div class="dynamic-time">
+											1天前
+										</div>
+									</li>
+								</ul>
+							</dd>
+						</dl>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="line">
+				<div class="footer_top clearfix">
+						<ul class="list-unstyled">
+						  <li><b>简介</b></li>
+						  <li>关于无忧精英网</li>
+						  <li>功能介绍</li>
+						  <li>产品动态</li>
+						  <li>校园招聘</li>
+						</ul>
+						<ul class="list-unstyled">
+						  <li><b>帮助中心</b></li>
+						  <li>我是猎头</li>
+						  <li>我是精英</li>
+						  <li>安全求职</li>
+						</ul>
+						<ul class="list-unstyled">
+						  <li><b>合作</b></li>
+						  <li>意见反馈</li>
+						  <li>猎鹰俱乐部</li>
+						  <li>网站合作</li>
+						</ul>
+						<ul class="list-unstyled">
+							<li><img src="images/2weima.png" style="width:80px"></li>
+							<li><b>无忧精英APP</b></li>
+						</ul>
+				</div>
+			</div>
+			<div class="copyright">
+				<ul class="list-unstyled">
+					<li>Email：51jingying@51job.com</li>
+					<li>未经51job.com 同意，不得转载本网站之所有招聘信息及作品</li>
+					<li>沪ICP备12015550号，无忧工作网版权所有©1999-2016</li>
+				</ul>
+			</div>
+		</div>
+	
+		<!--登录对话框-->
+		<div id="login_dlg" class="modal fade">
+		  <div class="modal-dialog" style="width:450px">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <div style="width:356px;height:60px;background: url(images/loginh4.png) no-repeat;"></div>
+		      </div>
+		      <div class="modal-body">
+		         <div class="form-group">
+				    <label for="inputEmail">登录</label>
+				    <input type="email" class="form-control" id="inputEmail" placeholder="邮箱/手机/用户名/51job账号" data-placement="top" title="账号不能为空">
+				  </div>
+				  <div class="form-group" style="text-align: right">
+				    <label for="inputPassword"><a>忘记密码</a></label>
+				    <input type="password" class="form-control" id="inputPassword" placeholder="密码" data-placement="top" title="密码不能为空">
+				  </div>
+				  <div class="checkbox">
+				    <label>
+				      <input type="checkbox"> 下次自动登录
+				    </label>
+				  </div>
+		      </div>
+		      <div class="modal-footer" style="text-align: center">
+		        <button type="button" class="btn btn-default btn-primary" data-dismiss="modal">登录</button>
+		        <a>还没有账号？立即注册</a>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+        <!--注册对话框-->
+        <div id="register_dlg" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="clearfix">
+                            <div class="register-panel">
+                                <div>
+                                    <img src="images/circle-pic114-lt.png">
+                                    <span></span>
+                                    <h4>猎头</h4>
+                                </div>
+                                <ul>
+                                    <li>多级认证的专业猎头顾问</li>
+                                    <li>搜索、联系、下载千万精英人才</li>
+                                    <li>发布Case和人脉管理</li>
+                                    <li>拍名片邀请等多渠道赚取积分</li>
+                                </ul>
+                                <div>
+                                    <button class="btn btn-default">我要成为猎头</button>
+                                </div>
+                            </div>
+                            <div class="register-panel">
+                                <div>
+                                    <img src="images/circle-pic114-jy.png">
+                                    <span></span>
+                                    <h4>精英</h4>
+                                </div>
+                                <ul>
+                                    <li>支持51job账户注册</li>
+                                    <li>灵活的Profile补充简历信息</li>
+                                    <li>线上优质猎头顾问为您服务</li>
+                                    <li>坐等工作来找您</li>
+                                </ul>
+                                <div>
+                                    <button class="btn btn-default">我要成为猎头</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <!--具体注册对话框-->
+        <div id="register_info_dlg" class="modal fade">
+            <div class="modal-dialog" style="width: 430px">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <div style="width:356px;height:60px;background: url(images/loginh4.png) no-repeat;"></div>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#lietou" aria-controls="lietou" role="tab" data-toggle="tab">猎头注册</a></li>
+                            <li role="presentation"><a href="#jingying" aria-controls="jingying" role="tab" data-toggle="tab">精英注册</a></li>
+                            <li role="presentation"><a href="#hr" aria-controls="hr" role="tab" data-toggle="tab">HR注册</a></li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="lietou">
+                                <div class="email-phone-switch hide">
+                                    <div class="title">已有精英账号，可以<a>新增猎头角色</a></div>
+                                    <input type="text" class="max-input" id="email" placeholder="电子邮箱">
+                                    <div class="title">没有邮箱，试试<a>手机注册</a></div>
+                                    <input type="text" class="max-input" id="username" placeholder="用户名">
+                                </div>
+                                <div class="email-phone-switch">
+                                    <div class="title">&nbsp;</div>
+                                    <input type="text" class="max-input" id="phone" placeholder="手机号码">
+                                    <div class="title">没有手机，试试<a>邮箱注册</a></div>
+                                    <input type="text" class="" style="width: 180px" id="inputCode" placeholder="验证码"><span style="display:inline-block;width: 18px"></span><input id="getCode" type="button" class="btn btn-default" value="获取验证码">
+                                </div>
+                                <div class="title">&nbsp;</div>
+                                <div>
+                                    <input type="text" class="" style="width: 180px" id="password" placeholder="密码"><span style="display:inline-block;width: 18px"></span><input type="text" style="width: 180px" class="" id="_password" placeholder="确认密码">
+                                </div>
+
+                                <div class="title">&nbsp;</div>
+                                <div>
+                                    <input type="text" style="width: 180px" id="code" placeholder="验证码"><span style="display:inline-block;width: 18px"></span><img id="code_img" src="http://www.51jingying.com/common/verifycode.php?type=2&a=0.03148188414707298" style="width: 122px;height: 42px;vertical-align: middle"><span style="display:inline-block;width: 18px"></span><a id="reload">换一张</a>
+                                </div>
+                                <div class="title">&nbsp;</div>
+                                <div style="padding-left: 10px">
+                                        <input type="checkbox" style="width: 14px;height: 14px;margin: 0px"><span style="line-height: 12px;vertical-align: top;">同意<a style="vertical-align: top;">无忧精英网用户协议</a></span>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="jingying">
+
+                                <div class="email-phone-switch hide">
+                                    <div class="title">&nbsp;</div>
+                                    <input type="text" class="max-input" id="email" placeholder="电子邮箱">
+                                    <div class="title">没有邮箱，试试<a>手机注册</a></div>
+                                    <input type="text" class="max-input" id="username" placeholder="用户名">
+                                </div>
+                                <div class="email-phone-switch">
+                                    <div class="title">&nbsp;</div>
+                                    <input type="text" class="max-input" id="phone" placeholder="手机号码">
+                                    <div class="title">没有手机，试试<a>邮箱注册</a></div>
+                                    <input type="text" class="" style="width: 180px" id="inputCode" placeholder="验证码"><span style="display:inline-block;width: 18px"></span><input id="getCode" type="button" class="btn btn-default" value="获取验证码">
+                                </div>
+                                <div class="title">&nbsp;</div>
+                                <div>
+                                    <input type="text" class="" style="width: 180px" id="password" placeholder="密码"><span style="display:inline-block;width: 18px"></span><input type="text" style="width: 180px" class="" id="_password" placeholder="确认密码">
+                                </div>
+
+                                <div class="title">&nbsp;</div>
+                                <div>
+                                    <input type="text" style="width: 180px" id="code" placeholder="验证码"><span style="display:inline-block;width: 18px"></span><img id="code_img" src="http://www.51jingying.com/common/verifycode.php?type=2&a=0.03148188414707298" style="width: 122px;height: 42px;vertical-align: middle"><span style="display:inline-block;width: 18px"></span><a id="reload">换一张</a>
+                                </div>
+                                <div class="title">&nbsp;</div>
+                                <div style="padding-left: 10px">
+                                    <input type="checkbox" style="width: 14px;height: 14px;margin: 0px"><span style="line-height: 12px;vertical-align: top;">同意<a style="vertical-align: top;">无忧精英网用户协议</a></span>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="hr">
+                                <div style="width:328px;height:306px;margin: 0px auto">
+                                    <img src="images/hr.jpg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="text-align: center">
+                        <button type="button" class="btn btn-default btn-primary" data-dismiss="modal">登录</button>
+                        <a>还没有账号？立即注册</a>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <!--地区对话框-->
+        <div id="area_dlg" class="modal fade">
+            <div class="modal-dialog" style="">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <p><b>居住地</b>（最多只能选择5个地区）</p>
+                        <ul class="list-inline">
+                            <li>已选：</li>
+                            <li class="hide"><a class="btn btn-default btn-del">&nbsp;全部删除&nbsp;</a></li>
+                        </ul>
+                    </div>
+                    <div class="modal-body">
+                        <div><b>热点城市：</b>
+                            <ul class="list-inline">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="text-align: center">
+                        <button type="button" class="btn btn-default btn-primary" data-dismiss="modal">登录</button>
+                        <button type="button" class="btn btn-default btn-primary" data-dismiss="modal">取消</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+    </body>
+</html>
